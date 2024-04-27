@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document } from 'mongoose';
-ipmort dotenv from 'dotenv';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -19,7 +19,7 @@ const UserSchema = new Schema<UserDocument>({
 const UserModel = mongoose.model<UserDocument>('User', UserSchema);
 
 
-mongoose.connect(process.env.URL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Function to calculate monthly logged-in and active users
 async function calculateMonthlyActivity() {

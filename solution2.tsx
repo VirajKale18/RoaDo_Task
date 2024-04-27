@@ -1,4 +1,8 @@
 import { MongoClient, Collection } from 'mongodb';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 
 interface Trip {
     start: string;
@@ -12,7 +16,7 @@ interface Shipment {
 }
 
 async function validateTripsWithMongoDB(trips: Trip[], shipment: Shipment): Promise<boolean> {
-    const uri = 'mongodb://localhost:27017';
+    const uri = process.env.MONGO_URL;
     const client = new MongoClient(uri);
 
     try {
