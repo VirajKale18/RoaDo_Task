@@ -3,7 +3,7 @@ ipmort dotenv from 'dotenv';
 
 dotenv.config();
 
-// Define a mongoose schema for the user data
+    //Mongoose Schema for the user data
 interface UserDocument extends Document {
     logged_in: Date;
     logged_out: Date;
@@ -18,7 +18,7 @@ const UserSchema = new Schema<UserDocument>({
 
 const UserModel = mongoose.model<UserDocument>('User', UserSchema);
 
-// Connect to MongoDB
+
 mongoose.connect(process.env.URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Function to calculate monthly logged-in and active users
@@ -70,7 +70,7 @@ async function calculateMonthlyActivity() {
     return monthlyActivity;
 }
 
-// Call the function and handle the result
+// Calling the function and getting the result
 calculateMonthlyActivity()
     .then(monthlyActivity => {
         console.log("Monthly Activity:", monthlyActivity);
